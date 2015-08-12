@@ -1,0 +1,11 @@
+#ifndef BESS_H
+#define BESS_H
+#include <math.h>
+
+double I0(double z);
+double I1(double z);
+double IN(int n,double z);
+double K0(double z);
+double K1(double z);
+double KN(int n,double z);
+#endif

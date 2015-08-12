@@ -1,0 +1,20 @@
+//location: "../Constants/"
+
+#ifndef PROGCONSTANTS_H
+#define PROGCONSTANTS_H
+
+#define itNum 5//number of times bessel functions are calculated in loops
+/*number of nuclear species; note these are just the ones I am currently testing*/
+#define nnuc  8
+#define nreac 12//number of forward reactions
+
+#define totalnnuc 8/*total number of nuclear species I am considering
+		     I can use this along with nnuc to cut out higher order
+		     nuclides
+		   */
+
+#define totalnreac 12//total number of reactions
+
+
+
+#endif

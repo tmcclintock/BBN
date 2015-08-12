@@ -1,0 +1,8 @@
+//location: "../AbundanceDerivs/"
+
+#ifndef ABUNCHANGES_H
+#define ABUNCHANGES_H
+
+void getdYdt(double rhob,double T9,double *Y,double *dYdt);
+
+#endif

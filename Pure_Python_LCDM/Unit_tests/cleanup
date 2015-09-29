@@ -1,0 +1,7 @@
+!#/bin/bash
+
+rm *~
+rm reaction_pngs/*.png
+rm reaction_pngs/forwards/*.png
+rm reaction_pngs/reverses/*.png
+rm reaction_pngs/boths/*.png

@@ -16,6 +16,16 @@
 #define CY 0.1 //fractional Abundance timestep change
 #define TIMECHANGE 1.5 //factor that the timestep can increase by
 
+//These are global aliases for python access
+double T0_alias = T0;
+double eta0_alias = eta0;
+double XNU_alias = XNU;
+double T9Final_alias = T9Final;
+double Ymin_alias = Ymin;
+double CT_alias = CT;
+double CY_alias = CY;
+double TIMECHANGE_alias = TIMECHANGE;
+
 //MeV constants
 #define QPNMeV 1.293 //MeV; neutron mass - proton mass
 #define GMeV 1.19e-34 //cm^3/s^2/(MeV/c/c); Newton's gravitational constant
@@ -44,7 +54,7 @@ extern double rhob0; //initial baryon mass density in g/cm/cm/cm
 /* Nuclide information */
 extern double deltaM[totalnnuc];//MeV; mass excess for each nuclide
 extern double Z[totalnnuc];//charge number of each nuclear speciesw
-extern double Qvals[totalnreac_const];//energy differences used in reverse reactions
+extern double Qvals[totalnreac];//energy differences used in reverse reactions
 extern double A[totalnnuc];
 
 /* Reaction Information */
@@ -58,5 +68,5 @@ extern double nnk[11];
 extern double nnl[11];
 
 /* A list of all reactions and their details */
-extern double reactionDetails[totalnreac_const][8];
+extern double reactionDetails[totalnreac][8];
 #endif

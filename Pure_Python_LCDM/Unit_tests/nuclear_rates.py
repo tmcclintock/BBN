@@ -48,7 +48,7 @@ def test_rates():
                   ctypes.POINTER(ctypes.c_double),\
                   ctypes.POINTER(ctypes.c_double)]
     #Get the number of reactions
-    nreac = ctypes.c_int.in_dll(rr_lib, 'totalnreac').value
+    nreac = ctypes.c_int.in_dll(rr_lib, 'totalnreac_alias').value
     print "\tNumber of reactions = ",nreac
 
     #Create the temperature array

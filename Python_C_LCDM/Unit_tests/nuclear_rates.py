@@ -41,7 +41,7 @@ forward_titles = [r"$n\rightarrow p$",#0
 def test_rates():
     print "Testing nuclear reaction rates"
     #Load the library
-    rr_lib = ctypes.cdll.LoadLibrary('../Reaction_rates/reaction_rates.so')
+    rr_lib = ctypes.cdll.LoadLibrary('../src/pybbn.so')
     rr = rr_lib.reaction_rates #function pointer
     #Set the argument types (double T9, double*f, double*r)
     rr.argtyps = [ctypes.c_double,\

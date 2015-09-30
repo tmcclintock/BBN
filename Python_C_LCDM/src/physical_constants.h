@@ -4,7 +4,7 @@
 #define PHYSICALCONST_H
 
 #include <math.h>
-#include "programConstants.h"
+#include "program_constants.h"
 
 #define T0 100 //GK; initial temperature
 #define eta0 6.19e-10 //unitless; initial baryon to photon ratio
@@ -15,16 +15,6 @@
 #define CT 0.01 //fractional Temperature timestep change
 #define CY 0.1 //fractional Abundance timestep change
 #define TIMECHANGE 1.5 //factor that the timestep can increase by
-
-//These are global aliases for python access
-double T0_alias = T0;
-double eta0_alias = eta0;
-double XNU_alias = XNU;
-double T9Final_alias = T9Final;
-double Ymin_alias = Ymin;
-double CT_alias = CT;
-double CY_alias = CY;
-double TIMECHANGE_alias = TIMECHANGE;
 
 //MeV constants
 #define QPNMeV 1.293 //MeV; neutron mass - proton mass

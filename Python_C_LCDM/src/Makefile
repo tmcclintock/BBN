@@ -1,6 +1,6 @@
-EXEC = reaction_rates.so
+EXEC = pybbn.so
 
-OBJS = reaction_rates.o
+OBJS = reaction_rates.o rk4.o timestep.o collect_derivs.o abundance_derivs.o dynamics_derivs.o densities.o bessel.o
 
 CC = gcc
 

@@ -1,6 +1,6 @@
 EXEC = pybbn.so
 
-OBJS = reaction_rates.o rk4.o timestep.o collect_derivs.o abundance_derivs.o dynamics_derivs.o densities.o bessel.o
+OBJS = reaction_rates.o rk4.o timestep.o collect_derivs.o abundance_derivs.o dynamics_derivs.o densities.o bessel.o partial_dynamics_derivs.o
 
 CC = gcc
 

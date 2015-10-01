@@ -12,6 +12,7 @@ int get_dydt(double*dxdt,double*x){
   fail = get_dynamics_derivs(dvdt,v,dYdt,Y);
   if (fail) return 1;
   fail = get_abundance_derivs(dYdt,Y,v);
+  if (fail) return 1;
 
   //Combine the derivatives into one array
   int i;

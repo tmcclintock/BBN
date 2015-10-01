@@ -5,8 +5,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//#include "physical_constants.h"
 #include "program_constants.h"
-//#include "reaction_rates.h"
+#include "reaction_rates.h"
 
 int get_abundance_derivs(double*,double*,double*);
 

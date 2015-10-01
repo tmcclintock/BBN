@@ -6,6 +6,7 @@
 #include <stdlib.h>
 
 #include "densities.h"
+#include "partial_dynamics_derivs.h"
 #include "program_constants.h"
 
 int get_dynamics_derivs(double*,double*,double*,double*);

@@ -58,5 +58,5 @@ extern double nnk[11];
 extern double nnl[11];
 
 /* A list of all reactions and their details */
-extern double reactionDetails[totalnreac][8];
+extern double reaction_details[totalnreac][8];
 #endif

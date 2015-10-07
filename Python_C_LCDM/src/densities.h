@@ -6,6 +6,7 @@
 #include <stdlib.h>
 
 #include "bessel.h"
+#include "expansion_rate.h"
 #include "physical_constants.h"
 #include "program_constants.h"
 
@@ -14,7 +15,6 @@ double getrhoGamma(double T9);//photon energy density
 double getrhoNu(double h,double T9);//neutrino energy density
 double getrhoe(double phie,double T9);//electron + positron energy density
 double getrhob(double h,double T9,double *Y);//baryon energy density
-double getH(double rho);//expansion rate
 
 /*Pressures*/
 double getPGamma(double T9);

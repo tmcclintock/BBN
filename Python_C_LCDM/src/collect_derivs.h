@@ -9,6 +9,6 @@
 #include "dynamics_derivs.h"
 #include "program_constants.h"
 
-int get_dydt(double*,double*);
+int get_dydt(double*,double*,int,int,int,double*,double);
 
 #endif

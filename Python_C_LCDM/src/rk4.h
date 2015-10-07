@@ -13,6 +13,6 @@
 /* THIS IS A SPECIAL INCLUDE, IT IS ALWAYS AT TOP LEVEL, WILL MOVE UP SOON */
 #include "aliases.h"
 
-int rk4(double*,double*,double*,double*,double*);
+int rk4(double*,double*,double*,double*,double*,int,int);
 
 #endif

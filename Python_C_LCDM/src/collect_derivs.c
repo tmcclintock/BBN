@@ -4,14 +4,14 @@
    array so that it can be used in RK4.
  */
 
-int get_dydt(double*dxdt,double*x){
+int get_dydt(double*dxdt,double*x,int ki,int inc,int ip,double*Y0,double dt){
   double v[3],dvdt[3];//dynamic variables
   double Y[totalnnuc],dYdt[totalnnuc];//abundances
 
   int fail = 0;//success checker
   fail = get_dynamics_derivs(dvdt,v,dYdt,Y);
   if (fail) return 1;
-  fail = get_abundance_derivs(dYdt,Y,v);
+  fail = get_abundance_derivs(dYdt,Y,v,ki,inc,ip,Y0,dt);
   if (fail) return 1;
 
   //Combine the derivatives into one array

@@ -29,10 +29,6 @@ double getrhob(double h,double T9,double*Y){//baryons
   return rb*(1+sum);
 }
 
-double getH(double rho){//expansion rate
-  return sqrt(8.*PI*G*rho/3.);
-}
-
 double getPGamma(double T9){//photons; per c^2
   return getrhoGamma(T9)/3.;
 }

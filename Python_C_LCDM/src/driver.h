@@ -6,6 +6,7 @@
 #include <stdlib.h>
 
 #include "initialize.h"
+#include "physical_constants.h"
 #include "rk4.h"
 
 /* THIS IS A SPECIAL INCLUDE, IT IS ALWAYS AT TOP LEVEL, WILL MOVE UP SOON */

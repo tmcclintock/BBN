@@ -15,12 +15,19 @@ double nnk[11];
 double nnl[11];
 double reaction_details[totalnreac][8];
 
+/*This is the initial baryon to photon ratio*/
+double eta0;
+
+
 int driver(int to_print,int print_increment,double eta0_guess){
-  FILE*abundances_file = fopen("../output_files/abundances.txt","w");
-  FILE*dynamics_file = fopen("../output_files/dynamics.txt","w");
-  fprintf(abundances_file,"p\tn\tD\tT\tHe3\tHe4\tBe7\tLi7\tLi6\n");
+  eta0 = eta0_guess;
+
+  FILE*abundances_file = fopen("/home/tmcclintock/Desktop/Github_stuff/BBN_on_github/Python_C_LCDM/output_files/abundances.txt","w");
+  FILE*dynamics_file = fopen("/home/tmcclintock/Desktop/Github_stuff/BBN_on_github/Python_C_LCDM/output_files/dynamics.txt","w");
+
+  fprintf(abundances_file,"n\tp\tD\tT\tHe3\tHe4\tBe7\tLi7\tLi6\n");
   fprintf(dynamics_file,"t\tT9\th\tphie\n");
-  
+
   double T9,h,phie,t;
   double Y[totalnnuc];
   double dt,dt_prev=1e-4;
@@ -58,25 +65,24 @@ int driver(int to_print,int print_increment,double eta0_guess){
 	fprintf(dynamics_file,"%e\t%e\t%e\t%e\n",t,T9,h,phie);
 	for(j=3;j<n;j++)
 	  fprintf(abundances_file,"%e\t",vars[j]);
-	fprintf(abundances_file,"%\n");
+	fprintf(abundances_file,"\n");
       }
     }
-
     i++;
   }
-  
+
   fclose(abundances_file);
   fclose(dynamics_file);
   return fail;
 }
-
-int main(){
+/*
+  int main(){
   int to_print = 1; //1 is true
   int print_increment = 1;
   double eta0_guess = 6.19e-10; //will be the MCMC variable
-
+  
   int fail = 0;
   fail = driver(to_print,print_increment,eta0_guess);
   printf("main works from here!\n");
-}
-
+  }
+*/

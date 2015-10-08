@@ -38,9 +38,8 @@
 #define mecc 8.187105e-7 //g*cm*cm/s/s; electron mass*c*c
 #define PI M_PI
 
-#define eta0 6.19e-10 //unitless; initial baryon to photon ratio
-//extern double eta0; //Initial baryon to photon ratio, unitless
-
+//#define eta0 6.19e-10 //unitless; initial baryon to photon ratio
+extern double eta0; //Initial baryon to photon ratio, unitless
 extern double rhob0; //initial baryon mass density in g/cm/cm/cm
 
 /* Nuclide information */

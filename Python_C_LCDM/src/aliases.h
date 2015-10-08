@@ -17,7 +17,6 @@ int totalnreac_alias =totalnreac;
 //From physical_constants.h
 #include "physical_constants.h"
 double T0_alias = T0;
-double eta0_alias = eta0;
 double XNU_alias = XNU;
 double T9Final_alias = T9Final;
 double Ymin_alias = Ymin;

@@ -1,12 +1,12 @@
 EXEC = pybbn.so
 
-OBJS = reaction_rates.o rk4.o timestep.o collect_derivs.o abundance_derivs.o dynamics_derivs.o densities.o bessel.o partial_dynamics_derivs.o initialize.o expansion_rate.o driver.o #test_main.o
+OBJS = reaction_rates.o rk4.o timestep.o collect_derivs.o abundance_derivs.o dynamics_derivs.o densities.o bessel.o partial_dynamics_derivs.o initialize.o expansion_rate.o driver.o
 
 CC = gcc
 
-CFLAGS = #-fPIC
+CFLAGS = -fPIC
 
-OFLAGS = -lm #-shared -Wl,-soname=$(EXEC)
+OFLAGS = -lm -shared -Wl,-soname=$(EXEC)
 
 INCL = 
 

@@ -48,6 +48,8 @@ int rk4(double*y,double*yout,double*t_p,double*dt_p,double*dtprev_p,
   if (fail) return 1;
   for(i=0;i<n;i++){
     yout[i] = y[i]+dt*(k1[i]/6.+k2[i]/3.+k3[i]/3.+k4[i]/6.);
+    if (yout[i] < Ymin)
+      yout[i] = Ymin;
   }
 
   return 0;

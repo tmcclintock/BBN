@@ -44,7 +44,7 @@ def test_rates():
     rr_lib = ctypes.cdll.LoadLibrary('../src/pybbn.so')
     rr = rr_lib.reaction_rates #function pointer
     #Set the argument types (double T9, double*f, double*r)
-    rr.argtyps = [ctypes.c_double,\
+    rr.argtypes = [ctypes.c_double,\
                   ctypes.POINTER(ctypes.c_double),\
                   ctypes.POINTER(ctypes.c_double)]
     #Get the number of reactions

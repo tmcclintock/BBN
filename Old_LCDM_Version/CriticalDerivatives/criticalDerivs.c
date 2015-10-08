@@ -69,8 +69,6 @@ double getDerivs(double phie, double h, double T9,double *Y, double *dYdt, doubl
 }
 
 double dTdt(double H,double rho,double pres,double rhoe,double S,double dSdt,double N,double M,double phie,double h,double T9,double *Y,double *dYdt){
-  //double drrrdT =drdT(H,rho,pres,rhoe,S,dSdt,N,M,phie,h,T9,Y,dYdt);
-  //printf("3*H=%e\tdrdT=%e\n",3.*H,drrrdT);
   return 3*H/drdT(H,rho,pres,rhoe,S,dSdt,N,M,phie,h,T9,Y,dYdt);
 }
 double dhdt(double Tdot,double H,double h,double T9){

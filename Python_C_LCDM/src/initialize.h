@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "bessel.h"
 #include "physical_constants.h"
 #include "program_constants.h"
 //#include "initialAbundances.h"

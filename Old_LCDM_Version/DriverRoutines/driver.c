@@ -28,14 +28,15 @@ int driver(FILE *hp,FILE *ap,FILE *dp,FILE *rp,double T9,double h,double phie,do
   double dt, dtprev=1e-4;
  
   /*End at the final temperature or after some number of steps*/
-  while(T9>T9Final){//begin while T<TFinal
+  while(T9>T9Final&&nsteps<10){//begin while T<TFinal
     //while(nsteps<1){
     dt = rk4BBN(&T9,&h,&phie,&t,&H,Y,dYdt,dtprev,inc,ip);
     if(dt<0)return -1;//error
-    if(nsteps%10==0){
+    if(nsteps%1==0){
+      
       /*       printf("T9=%16.15e\t",T9); */
       //printf("t=%4.3e\tdt=%e\n",t,dt);
-      printf("h=%4.3e\tphie=%4.3e\tnb=%4.3e\tT9=%4.3e\n",h,phie,h*T9*T9*T9/M_ug,T9);
+      printf("dt=%4.3e\teh=%4.3e\tphie=%4.3e\tnb=%4.3e\tT9=%4.3e\n",dt,h,phie,h*T9*T9*T9/M_ug,T9);
       outputAbundances(ap,Y,t,T9);
       outputDynamics(dp,T9,h,phie,t,H);
       outputRates(rp,dYdt,t);

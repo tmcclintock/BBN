@@ -11,7 +11,7 @@
 /* THIS IS A SPECIAL INCLUDE, IT IS ALWAYS AT TOP LEVEL, WILL MOVE UP SOON */
 #include "aliases.h"
 
-int driver(int,double);
+int driver(int,int,double);
 
 #endif
 

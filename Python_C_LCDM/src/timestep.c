@@ -42,7 +42,7 @@ int get_dt(double*dydt,double*y,double*dt_p,double dt){
     dt = dt_T;
   else
     dt = dt_Y;
-  if(dt<TIMECHANGE*dt_prev)
+  if(dt>TIMECHANGE*dt_prev)
     dt = TIMECHANGE*dt_prev;
   *dt_p = dt;
   return 0;

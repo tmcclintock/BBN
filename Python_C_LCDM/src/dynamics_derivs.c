@@ -18,7 +18,7 @@ double drdT(double H,double rho,double pres,double rhoe,
 	    double phie,double h,double T9,
 	    double *Y,double *dYdt);
 
-int get_dynamics_derivs(double*dvdt,double*v,double*dYdt,double*Y){
+int get_dynamics_derivs(int ki,double*dvdt,double*v,double*dYdt,double*Y){
   double T9=v[0],h=v[1],phie=v[2];
 
   //Calculate all densities and the expansion rate
@@ -73,7 +73,5 @@ double drdT(double H,double rho,double pres,double rhoe,
 	    double S,double dSdt,double N,double M,
 	    double phie,double h,double T9,
 	    double *Y,double *dYdt){
-  return -1*(drhoGdT(T9)+drhoedT(rhoe,phie,T9)+drhobdT(h,T9,Y))/
-    (rho+pres+1./3./H*(drhobdt(h,T9,dYdt)+
-		       drhoedt(rhoe,phie,H,h,T9,S,dSdt,N,M)));
+  return -1*(drhoGdT(T9)+drhoedT(rhoe,phie,T9)+drhobdT(h,T9,Y))/(rho+pres+1./3./H*(drhobdt(h,T9,dYdt)+drhoedt(rhoe,phie,H,h,T9,S,dSdt,N,M)));
 }

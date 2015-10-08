@@ -62,7 +62,11 @@ double rk4BBN(double *T9,double *h,double *phie,double *t,double *Hout,double *Y
 
   /*Execute the runga-kutta algorithm*/
   /*Calculating the k2/h values*/
+  /*printf("T9=%e  dTdt=%e\n",*T9,k1_dvdt[0]);
+  printf("h= %e  dhdt=%e\n",*h,k1_dvdt[1]);
+  printf("pe=%e  dpdt=%e\n",*phie,k1_dvdt[2]);*/
   for(i=0;i<nnuc;i++){
+    //printf("Y[%i] = %e  dYdt[%i] = %e\n",i,Y[i],i,k1_dYdt[i]);
     Y_temp[i]= Y[i] + dt*k1_dYdt[i]/2;
     if(Y_temp[i]<Ymin)Y_temp[i]=Ymin;
   }

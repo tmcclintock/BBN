@@ -61,12 +61,12 @@ double drhobdt(double h, double T9, double *dYdt){
     sum+=(zeta*T9+deltaM[i]/M_u)*dYdt[i];
   return h*T9*T9*T9*sum;
 }
-double drhoedt(double rhoe,double phie,double H, 
-	       double h, double T9, double S, double dSdt,
+
+double drhoedt(double rhoe,double phie,double H,double h, 
+	       double T9, double S, double dSdt,
 	       double N,double M){//lepton dens. time deriv.
   return 3.*H*drhoedphie(phie,T9)*(dphiedr(phie,N,M,T9,S)+dphiedS(phie,N,M,T9,S)*dSdt/3./H);
 }
-
 
 double drhoGdT(double T9){//photon density temp. deriv.
   return 4.*getrhoGamma(T9)/T9;

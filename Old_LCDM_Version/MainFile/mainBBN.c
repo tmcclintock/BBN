@@ -25,10 +25,10 @@ double reactionDetails[totalnreac][8];
 
 int main(){
   /*Create the files to hold the abundances,dynamics, rates, and header info*/
-  FILE *headFP=fopen("BinaryDataFiles/header.dat","w");
-  FILE *abunFP=fopen("BinaryDataFiles/abundances.dat","w");
-  FILE *dynaFP=fopen("BinaryDataFiles/dynamics.dat","w");
-  FILE *rateFP=fopen("BinaryDataFiles/rates.dat","w");
+  FILE *headFP=fopen("BinaryDataFiles/header.txt","w");
+  FILE *abunFP=fopen("BinaryDataFiles/abundances.txt","w");
+  FILE *dynaFP=fopen("BinaryDataFiles/dynamics.txt","w");
+  FILE *rateFP=fopen("BinaryDataFiles/rates.txt","w");
 
   /* Decalare the critical variables as well as the expansion rate H*/
   double T9,h,phie,t;

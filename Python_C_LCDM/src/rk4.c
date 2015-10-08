@@ -15,9 +15,9 @@ int rk4(double*y,double*yout,double*t_p,double*dt_p,double*dtprev_p,
 
   //Assemble Y0, the abundances at the start of the step
   double Y0[totalnnuc];
-  for (i=0;i<totalnnuc;i++)
+  for (i=0;i<totalnnuc;i++){
     Y0[i] = y[i+3];//first three spots are dynamic variables
-  
+  }
   //The rest is standard RK4 with dynamic step size
   double k1[n],k2[n],k3[n],k4[n],temp[n];
   fail = get_dydt(k1,y,1,inc,ip,Y0,dt);

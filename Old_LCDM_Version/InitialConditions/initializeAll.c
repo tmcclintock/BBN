@@ -19,7 +19,7 @@ void initializeAll(double *T9,double *h,double *phie,double *t,double *Y){
   initializeAbundances(Y,*T9);
 
   /*Initialize phie*/
-  *phie=getphieInit(*h,*T9,Y[0]);
+  *phie=getphieInit(*h,*T9,Y[1]);
 }
 
 void initializeConstants(double *deltaM,double *Z,double *Qvals,double *A,double *nni,double *nnj,double *nnk,double *nnl, double reactionDetails[totalnreac][8]){

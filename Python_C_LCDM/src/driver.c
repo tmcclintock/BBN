@@ -15,10 +15,7 @@ double nnk[11];
 double nnl[11];
 double reaction_details[totalnreac][8];
 
-int driver(int to_print,double eta0_guess){
-
-  int print_increment = 100;
-
+int driver(int to_print,int print_increment,double eta0_guess){
   FILE*abundances_file = fopen("../output_files/abundances.txt","w");
   FILE*dynamics_file = fopen("../output_files/dynamics.txt","w");
   fprintf(abundances_file,"p\tn\tD\tT\tHe3\tHe4\tBe7\tLi7\tLi6\n");
@@ -26,7 +23,7 @@ int driver(int to_print,double eta0_guess){
   
   double T9,h,phie,t;
   double Y[totalnnuc];
-  double dt,dt_prev;
+  double dt,dt_prev=1e-4;
 
   int inc=50,ip=50;//variables used for error correction in the abundance step
 
@@ -36,35 +33,35 @@ int driver(int to_print,double eta0_guess){
 
   int fail=0;
 
-  double vars[3+totalnnuc],vars_new[totalnnuc];
+  int n = 3 + totalnnuc;
+  double vars[n],vars_new[n];
   int i,j;
   vars[0]=T9,vars[1]=h,vars[2]=phie;
   vars_new[0]=T9,vars_new[1]=h,vars_new[2]=phie;
-  for(i=3;i<3+totalnnuc;i++){
-    vars[i]    =Y[i];
-    vars_new[i]=Y[i];
+  for(i=3;i<n;i++){
+    vars[i]    =Y[i-3];
+    vars_new[i]=Y[i-3];
   }
 
   i=0;
-  printf("Initial: %f  %f\n",t,T9);
   while(T9>T9Final){
     fail = rk4(vars,vars_new,&t,&dt,&dt_prev,inc,ip);
-    if(fail){printf("Error!\n");return;}
+    if(fail){printf("Error from driver!\n");return fail;}
     vars[0]=vars_new[0],vars[1]=vars_new[1],vars[2]=vars_new[2];
-    for(j=3;j<3+totalnnuc;j++)
+    for(j=3;j<n;j++)
       vars[j]=vars_new[j];
     t+=dt;
+    dt_prev = dt;
     T9=vars[0],h=vars[1],phie=vars[2];
-
     if(to_print){
       if(i%print_increment==0){
 	fprintf(dynamics_file,"%e\t%e\t%e\t%e\n",t,T9,h,phie);
-	for(j=3;j<3+totalnnuc;j++)
+	for(j=3;j<n;j++)
 	  fprintf(abundances_file,"%e\t",vars[j]);
 	fprintf(abundances_file,"%\n");
       }
     }
-    printf("%f  %f\n",t,T9);
+
     i++;
   }
   
@@ -74,11 +71,12 @@ int driver(int to_print,double eta0_guess){
 }
 
 int main(){
-  int to_print = 0; //1 is true
+  int to_print = 1; //1 is true
+  int print_increment = 1;
   double eta0_guess = 6.19e-10; //will be the MCMC variable
 
   int fail = 0;
-  fail = driver(to_print,eta0_guess);
+  fail = driver(to_print,print_increment,eta0_guess);
   printf("main works from here!\n");
 }
 

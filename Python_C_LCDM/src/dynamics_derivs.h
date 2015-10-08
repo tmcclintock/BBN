@@ -10,6 +10,6 @@
 #include "partial_dynamics_derivs.h"
 #include "program_constants.h"
 
-int get_dynamics_derivs(double*,double*,double*,double*);
+int get_dynamics_derivs(int,double*,double*,double*,double*);
 
 #endif

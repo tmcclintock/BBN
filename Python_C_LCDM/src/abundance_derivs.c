@@ -278,6 +278,8 @@ int get_abundance_derivs(double*dYdt,double*Y,double*v,
   for(i=0;i<nnuc;i++){
     yY[i]=yx[nnuc-1-i];
     dYdt[i]=(yY[i]-Y0[i])/dt;
+    //if(ki==1)
+    //  printf("dydt[%i]=%e  %e  %e %e\n",i,dYdt[i],yY[i],Y0[i],dt);
   }
 
   /* Determine success of the algorithm */

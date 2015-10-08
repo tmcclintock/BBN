@@ -1,9 +1,47 @@
-#include "initialize_constants.h"
+#include "initialize.h"
 
 /* This prepares the arrays that hold information to the types of reactions
    involved. It also initializes things like the arrays that hold mass 
-   differences.
+   differences. Also, it has the functions for initializing the dynamics.
  */
+
+double rhob0;//This is the external variable
+
+double get_phie_init(double h,double T9,double Yp){
+  double sum=0,z=mecc/kb/T9;
+  int i;
+  for(i=1;i<itNum;i++)
+    sum+=pow(-1.,i+1)*i*LBess(i*z);
+  return PI*PI/2.*NA*pow(hbar*c/kb,3)*h*Yp/z/z/z/sum;
+  //unitless somehow, but really fucking grams
+}
+
+double getYpInit(double T9){
+  return 1./(1+exp(-QPN/kb/T9));
+}
+
+double getYnInit(double T9){
+  return 1./(1+exp(QPN/kb/T9));
+}
+
+void initialize_abundances(double T9,double*Y){
+  int i;
+  Y[0]=getYnInit(T9);//neutrons
+  Y[1]=getYpInit(T9);//protons
+  Y[2]=Y[0]*Y[1]*rhob0*exp(Qvals[3]/T9)/(pow(T9,1.5)*4.71e9);//D
+  for(i=3;i<totalnnuc;i++)
+    Y[i]=Ymin;//All others
+}
+
+void initialize_abundances_and_dynamics(double*T9,double*h,
+					double*phie,double*t,double*Y){
+  *T9 = T0;//GK
+  *h = 33683.0*eta0*2.75;/*g GK^3/cm^3 apparently, fuck kawano's code*/
+  *t = 10.4*10.4/(*T9)/(*T9);//seconds
+  rhob0 = (*h)*(*T9)*(*T9)*(*T9);
+  initialize_abundances(*T9,Y);
+  *phie = get_phie_init(*h,*T9,Y[1]);
+}
 
 void initialize_constants(double *deltaM,double *Z,double *Qvals,
 			  double *A,double *nni,double *nnj,double *nnk,

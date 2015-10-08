@@ -1,5 +1,3 @@
-//location: "../Constants/"
-
 #ifndef PROGCONSTANTS_H
 #define PROGCONSTANTS_H
 

@@ -7,7 +7,7 @@ double get_H_wrapper(double T9,double h,double phie,double*Y){
   double rhoG = getrhoGamma(T9), rhoNu = getrhoNu(h,T9),
     rhoe = getrhoe(phie,T9), rhob = getrhob(h,T9,Y);
   double rhoTotal = rhoG+rhoNu+rhoe+rhob;
-  return getH(rhoTotal);
+  return get_H(rhoTotal);
 }
 
 double get_H(double rho){//expansion rate

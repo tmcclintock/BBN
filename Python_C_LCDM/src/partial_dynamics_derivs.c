@@ -7,7 +7,7 @@
 
 //Phi_e derivatives
 double dphiedT(double phie,double N,double M, double T9,double S){
-  return (dMdT(M,T9)-dNdT(N,phie,T9))/dNphie(phie,T9);
+  return (dMdT(M,T9)-dNdT(N,phie,T9))/dNdphie(phie,T9);
 }
 
 double dphiedr(double phie,double N,double M,double T9,double S){

@@ -26,7 +26,7 @@ int get_dynamics_derivs(double*dvdt,double*v,double*dYdt,double*Y){
     rhoe = getrhoe(phie,T9), rhob = getrhob(h,T9,Y);
   double rhoTotal = rhoG+rhoNu+rhoe+rhob;
   double rho = rhoG+rhoe; //neutrinos have decoupled
-  double H = getH(rhoTotal); //expansion rate
+  double H = get_H(rhoTotal); //expansion rate
   
   //Calculate all pressures
   double PG = getPGamma(T9), PNu = getPNu(T9), Pe = getPe(phie,T9),

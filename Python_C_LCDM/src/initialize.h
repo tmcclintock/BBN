@@ -10,8 +10,9 @@
 //#include "initialAbundances.h"
 //#include "initialDynamics.h"
 
-
-//void initializeAll(double *T9,double *h,double *phie,double *t,double *Y);
+void initialize_abundances(double,double*);
+void initialize_abudnaces_and_dynamics(double*T9,double*h,
+				       double*phie,double*t,double*Y);
 void initialize_constants(double *deltaM,double *Z,double *Qvals,
 			  double *A,double *nni,double *nnj,double *nnk,
 			  double *nnl,double reaction_details[totalnreac][8]);

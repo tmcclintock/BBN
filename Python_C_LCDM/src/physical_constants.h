@@ -7,7 +7,6 @@
 #include "program_constants.h"
 
 #define T0 100 //GK; initial temperature
-#define eta0 6.19e-10 //unitless; initial baryon to photon ratio
 #define XNU 3.28  //Effective number of neutrino species
 #define T9Final 1e-1//test final temp//0.1e9 //0.1GK; final temperature
 
@@ -38,6 +37,9 @@
 #define me 9.10938e-28 //g; electron mass
 #define mecc 8.187105e-7 //g*cm*cm/s/s; electron mass*c*c
 #define PI M_PI
+
+#define eta0 6.19e-10 //unitless; initial baryon to photon ratio
+//extern double eta0; //Initial baryon to photon ratio, unitless
 
 extern double rhob0; //initial baryon mass density in g/cm/cm/cm
 

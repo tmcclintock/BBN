@@ -19,7 +19,7 @@ double reaction_details[totalnreac][8];
 double eta0;
 
 
-int driver(int to_print,int print_increment,double eta0_guess){
+int driver(int to_print,int print_increment,double eta0_guess,double*Y_out){
   eta0 = eta0_guess;
 
   FILE*abundances_file = fopen("/home/tmcclintock/Desktop/Github_stuff/BBN_on_github/Python_C_LCDM/output_files/abundances.txt","w");
@@ -70,6 +70,9 @@ int driver(int to_print,int print_increment,double eta0_guess){
     }
     i++;
   }
+  
+  for(i=0;i<totalnnuc;i++)
+    Y_out[i] = vars[i+3];
 
   fclose(abundances_file);
   fclose(dynamics_file);

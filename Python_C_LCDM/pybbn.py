@@ -1,6 +1,7 @@
 import ctypes as ctypes
 import numpy as np
 import matplotlib.pyplot as plt
+import time
 
 #run the program once
 bbn_lib = ctypes.cdll.LoadLibrary("src/pybbn.so")
@@ -17,7 +18,10 @@ print "Eta0 guess: ",eta0_guess
 totalnnuc = ctypes.c_int.in_dll(bbn_lib,'totalnnuc_alias').value
 Y_final = np.zeros(totalnnuc,dtype=np.double) #Final abundances
 Y_final_ct = Y_final.ctypes.data_as(ctypes.POINTER(ctypes.c_double))
+start = time.time()
 driver(ctypes.c_int(tp),ctypes.c_int(1),ctypes.c_double(eta0_guess),Y_final_ct)
+end = time.time()
+print "BBN calculation time = %f"%(end-start)
 Y_final = np.array(Y_final_ct[0:totalnnuc])
 
 print Y_final

@@ -22,8 +22,8 @@ double eta0;
 int driver(int to_print,int print_increment,double eta0_guess,double*Y_out){
   eta0 = eta0_guess;
 
-  FILE*abundances_file = fopen("/home/tmcclintock/Desktop/Github_stuff/BBN_on_github/Python_C_LCDM/output_files/abundances.txt","w");
-  FILE*dynamics_file = fopen("/home/tmcclintock/Desktop/Github_stuff/BBN_on_github/Python_C_LCDM/output_files/dynamics.txt","w");
+  FILE*abundances_file = fopen("./output_files/abundances.txt","w");
+  FILE*dynamics_file = fopen("./output_files/dynamics.txt","w");
 
   fprintf(abundances_file,"n\tp\tD\tT\tHe3\tHe4\tBe7\tLi7\tLi6\n");
   fprintf(dynamics_file,"t\tT9\th\tphie\n");
